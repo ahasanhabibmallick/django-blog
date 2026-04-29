@@ -164,6 +164,15 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# .gitignore mein add karo
+staticfiles/
+static/
+*.pyc
+__pycache__/
+env/
+db.sqlite3
+
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
