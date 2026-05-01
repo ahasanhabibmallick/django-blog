@@ -29,7 +29,10 @@ urlpatterns = [
     path('category/', include('blogs.urls')),
     path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT}),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
-    path('<slug:slug>/',Blogsview.blogs, name='blogs'),
+    path('blogs/<slug:slug>/',Blogsview.blogs, name='blogs'),
     #search endpoint
-    path('blogs/search/',Blogsview.search, name='search',)
+    path('blogs/search/',Blogsview.search, name='search'),
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
