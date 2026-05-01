@@ -20,7 +20,7 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.static import serve
-
+from blogs import views as Blogsview
 handler404 = 'blog_main.views.custom_404'
 
 urlpatterns = [
@@ -28,4 +28,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('category/', include('blogs.urls')),
     path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT}),
+    path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    path('<slug:slug>/',Blogsview.blogs, name='blogs'),
+    #search endpoint
+    path('blogs/search/',Blogsview.search, name='search',)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

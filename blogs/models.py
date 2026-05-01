@@ -35,3 +35,11 @@ class Blog(models.Model):
 
         def __str__(self):
              return self.title
+        
+
+class SocialLink(models.Model):
+    platform = models.CharField(max_length=50) 
+    link = models.URLField()
+
+    def __str__(self):
+        return self.platform        
