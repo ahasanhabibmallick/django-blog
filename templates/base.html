@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="{% static "css/blog.css" %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 <body>
     <div class="container">
@@ -23,9 +24,11 @@
           </div>
           <div class="col-4">
             <form action="{% url 'search' %}" method="GET">
-              <div class="input-group">
-                        <input class="form-control" type="text" name ="keyword" value ="{{ keyword }}" placeholder="Enter search term..." />
-                        <button type="submit" class="btn btn-warning" type="button">Go!</button>
+              <div class="d-flex">
+                        <input class="form-control mr-2" type="text" name ="keyword" value ="{{ keyword }}" placeholder="Enter search term..." />
+                        <button type="submit" class="btn btn-primary " type="button" >
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
             </form>
           </div>
@@ -34,7 +37,7 @@
             <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a> &nbsp;
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
             {% else %}
-            <span>You are logged in as {{ user}}</span>
+            <span><a href="{% url 'dashboard' %}">Dashboard</a></span>
             &emsp;
             <span><a href="{% url 'logout'%}">Logout</a></span>
             {% endif %}

@@ -9,7 +9,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_editable = ('is_featured',)
 
     def get_category_name(self, obj):
-        return obj.Category.category_name
+        return obj.category.category_name
 
 admin.site.register(Category)
 admin.site.register(Blog, BlogAdmin)
